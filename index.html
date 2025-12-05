@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comité d'Éthique - Transmission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Transmission au Département Judiciaire</h1>
+        <nav>
+            <button onclick="showSection('cassette')">Cassette animée</button>
+            <button onclick="showSection('typing')">Typing effect</button>
+            <button onclick="showSection('scipnet')">SCiPNET</button>
+        </nav>
+    </header>
+
+    <!-- Version Cassette Animée -->
+    <section id="cassette" class="section">
+        <div class="tape-wrap">
+            <div class="tape-anim">
+                <div class="tape-left"></div>
+                <div class="tape-right"></div>
+            </div>
+            <div class="tape-record">
+                <span class="record r1">//Objet : URGENT - Demande de Renseignements et Accès à l'Interrogatoire//</span>
+                <span class="record r2">//Incident au Quartier Administratif et Entrave au Mandat du Comité d'Éthique//</span>
+                <span class="record r3">//À l'attention de : [Nom du Responsable du Département Judiciaire]//</span>
+                <span class="record r4">//Message complet et détaillé ici...//</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typing Effect -->
+    <section id="typing" class="section">
+        <div class="type-wrap-wrapper">
+            <div class="type-wrapper">
+                <div id="u-start"></div>
+                <div class="typearea">
+                    <div class="textchange" id="typing-text"></div>
+                </div>
+            </div>
+            <div class="buttonwrapper">
+                <button onclick="startTyping()">Afficher Transmission</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCiPNET / Dossier Comité d'Éthique -->
+    <section id="scipnet" class="section">
+        <form autocomplete="off" class="scipnet-form">
+            <p class="scipnet-title">SCiPNET LOGIN</p>
+            <div class="input-container">
+                <input class="input-field" type="text" placeholder="Username" name="usrnm">
+            </div>
+            <div class="input-container">
+                <input class="input-field" type="password" placeholder="Password">
+            </div>
+            <button type="button" class="btn" onclick="alert('Login simulé')">Login</button>
+            <button type="button" class="btn2">Forgot password?</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
