@@ -1,42 +1,27 @@
-/* Global */
 body {
     font-family: 'Courier New', monospace;
-    background: #121212;
-    color: #3F3;
+    background: #0a0a0a;
+    color: #0f0;
     margin: 0;
     padding: 0;
 }
-header { text-align: center; padding: 1em; }
-h2 { text-align: center; }
-button { padding: 10px 20px; margin: 10px; cursor: pointer; background:#222; color:#3F3; border:1px solid #3F3; }
-button:hover { background:#3F3; color:#121212; }
+h2 { text-align: center; margin-top: 20px; }
+.stage { display: none; padding: 2em; text-align: center; }
+#container { max-width: 900px; margin: auto; }
 
-/* Sections */
-.section { display: none; padding: 2em; }
+/* Cassette animée */
+.tape { position: relative; height: 150px; margin: 20px auto; }
+.tape-left, .tape-right {
+    width: 80px; height: 80px; background: #222; border-radius: 50%;
+    display: inline-block; margin: 0 50px; animation: spin 3s linear infinite;
+}
+@keyframes spin { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
 
-/* Cassette Animée */
-.tape-wrap { position: relative; background: #222; padding: 20px; border: 2px dashed #555; margin-bottom: 20px; }
-.tape-anim { position: relative; height: 200px; }
-.tape-left, .tape-right { position: absolute; width: 70px; height: 70px; top: 50px; background-size: cover; }
-.tape-left { left: -50px; background: url('assets/images/cassette.png') no-repeat center; animation: spin1 15s linear infinite; }
-.tape-right { right: -50px; background: url('assets/images/cassette.png') no-repeat center; animation: spin1 20s linear infinite; }
-.tape-record { text-align: center; margin-top: 20px; }
-.record { display: block; opacity: 0; animation-name: record; animation-duration: 3s; animation-fill-mode: forwards; }
-.r1 { animation-delay: 0s; } .r2 { animation-delay: 3s; } .r3 { animation-delay: 6s; }
-
-@keyframes spin1 { 0%{ transform: rotate(0deg); } 100%{ transform: rotate(360deg); } }
-@keyframes record { 0%{ opacity:0; } 25%{ opacity:1; } 75%{ opacity:1; } 100%{ opacity:0; } }
-
-/* Typing Effect */
-.type-wrap-wrapper { text-align: left; max-width: 800px; margin: auto; padding: 2em; border: 2px solid #3F3; }
-#typing-text { color: #3F3; white-space: pre-wrap; }
+/* Typing */
+#typing-text { text-align: left; white-space: pre-wrap; padding: 20px; border: 1px dashed #0f0; background: #111; }
 
 /* SCiPNET */
-.scipnet-form { max-width: 450px; margin: auto; text-align: center; background: #222; padding: 2em; border-radius: 10px; border: 1px solid #3F3; }
-.input-container { display: flex; width: 100%; margin-bottom: 15px; }
-.input-field { width: 100%; padding: 10px; border: 1px solid #3F3; background: #121212; color: #3F3; }
-.btn { padding: 10px 20px; background: #3F3; color: #121212; border: none; cursor: pointer; }
-.btn:hover { background: #121212; color: #3F3; border: 1px solid #3F3; }
+#scipnet-login { padding: 2em; border: 2px dashed #0f0; background: #111; }
 
-/* Message final */
-#full-message { background: #121212; color: #3F3; padding: 2em; border: 2px dashed #3F3; white-space: pre-wrap; }
+/* Final message */
+#full-message { padding: 2em; border: 2px dashed #0f0; background: #111; white-space: pre-wrap; }
