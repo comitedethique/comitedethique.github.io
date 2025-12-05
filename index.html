@@ -1,65 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comité d'Éthique - Transmission</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comité d'Éthique - Transmission</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Comité d'Éthique - Transmission Sécurisée</h1>
-    </header>
-
-    <!-- Etape 1 : Cassette Animée -->
-    <section id="cassette" class="section">
-        <h2>Option 67 : Cassette Animée</h2>
-        <div class="tape-wrap">
-            <div class="tape-anim">
-                <div class="tape-left"></div>
-                <div class="tape-right"></div>
-            </div>
-            <div class="tape-record">
-                <span class="record r1">Transmission sécurisée en cours...</span>
-                <span class="record r2">Chargement du message initial...</span>
-                <span class="record r3">Préparation des protocoles SCiPNET...</span>
-            </div>
+<div id="container">
+    <!-- Cassette Animée -->
+    <div id="cassette" class="stage">
+        <h2>Option 67 : Cassette en cours de lecture...</h2>
+        <div class="tape">
+            <div class="tape-left"></div>
+            <div class="tape-right"></div>
         </div>
-        <button onclick="nextStep('typing')">Étape suivante → Typing Effect</button>
-    </section>
+        <p id="cassette-msg"></p>
+    </div>
 
-    <!-- Etape 2 : Typing Effect -->
-    <section id="typing" class="section">
-        <h2>Effet Typing : Lecture du message</h2>
-        <div class="type-wrap-wrapper">
-            <div class="type-wrapper">
-                <div id="typing-text"></div>
-            </div>
+    <!-- Typing Effect -->
+    <div id="typing" class="stage">
+        <h2>Lecture sécurisée du message</h2>
+        <pre id="typing-text"></pre>
+    </div>
+
+    <!-- SCiPNET -->
+    <div id="scipnet" class="stage">
+        <h2>Accès SCiPNET</h2>
+        <div id="scipnet-login">
+            <p>Connexion au dossier en cours...</p>
         </div>
-        <button onclick="nextStep('scipnet')">Étape suivante → SCiPNET</button>
-    </section>
+    </div>
 
-    <!-- Etape 3 : SCiPNET / Dossier -->
-    <section id="scipnet" class="section">
-        <h2>Dossier Comité d'Éthique / SCiPNET</h2>
-        <form class="scipnet-form" autocomplete="off">
-            <p class="scipnet-title">SCiPNET LOGIN</p>
-            <div class="input-container">
-                <input class="input-field" type="text" placeholder="Username">
-            </div>
-            <div class="input-container">
-                <input class="input-field" type="password" placeholder="Password">
-            </div>
-            <button type="button" class="btn" onclick="showFinalMessage()">Login</button>
-        </form>
-    </section>
-
-    <!-- Etape finale : Message complet -->
-    <section id="final" class="section">
+    <!-- Message final -->
+    <div id="final" class="stage">
         <h2>Transmission complète</h2>
         <pre id="full-message"></pre>
-    </section>
-
-    <script src="script.js"></script>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
