@@ -1,11 +1,9 @@
-// Étapes du site
-function nextStep(id) {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-    if(id === 'typing') startTyping();
-}
+const cassetteMsgs = [
+    "Transmission sécurisée en cours...",
+    "Chargement du message initial...",
+    "Préparation des protocoles SCiPNET..."
+];
 
-// Typing Effect
 const typingText = `Objet : URGENT - Demande de Renseignements et Accès à l'Interrogatoire - Incident au Quartier Administratif et Entrave au Mandat du Comité d'Éthique (Réf. Alerte Éthique #69335cd939c7595cdd5770e0)
 
 À l'attention de : [Nom du Responsable du Département Judiciaire ou du département en général, ex: Chef du Département Judiciaire]
@@ -40,23 +38,55 @@ Cordialement,
 
 [Votre Nom/Prénom] [Votre Fonction au sein du Comité d'Éthique] « Gloire à la Fondation, Gloire à l’Éthique »`;
 
-let i = 0;
-function startTyping() {
-    const elem = document.getElementById('typing-text');
-    elem.innerHTML = '';
-    i = 0;
+// Séquences automatiques
+function runCassette() {
+    let index = 0;
+    const elem = document.getElementById('cassette-msg');
+    document.getElementById('cassette').style.display = 'block';
     const interval = setInterval(() => {
-        elem.innerHTML += typingText[i++];
-        if (i >= typingText.length) clearInterval(interval);
-    }, 10);
+        elem.textContent = cassetteMsgs[index++];
+        if (index >= cassetteMsgs.length) {
+            clearInterval(interval);
+            setTimeout(runTyping, 1000);
+        }
+    }, 2500);
 }
 
-// Affichage final après SCiPNET
-function showFinalMessage() {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-    document.getElementById('final').style.display = 'block';
-    document.getElementById('full-message').textContent = typingText;
+function runTyping() {
+    document.getElementById('cassette').style.display = 'none';
+    const typingDiv = document.getElementById('typing');
+    typingDiv.style.display = 'block';
+    let i = 0;
+    const interval = setInterval(() => {
+        typingDiv.querySelector('#typing-text').textContent += typingText[i++];
+        if (i >= typingText.length) {
+            clearInterval(interval);
+            setTimeout(runScipnet, 1000);
+        }
+    }, 8);
 }
 
-// Initial
-nextStep('cassette');
+function runScipnet() {
+    document.getElementById('typing').style.display = 'none';
+    const scipnetDiv = document.getElementById('scipnet');
+    scipnetDiv.style.display = 'block';
+    let dots = 0;
+    const interval = setInterval(() => {
+        scipnetDiv.querySelector('#scipnet-login').textContent = "Connexion au dossier SCiPNET" + ".".repeat(dots);
+        dots = (dots + 1) % 4;
+    }, 500);
+    setTimeout(() => {
+        clearInterval(interval);
+        showFinal();
+    }, 4000);
+}
+
+function showFinal() {
+    document.getElementById('scipnet').style.display = 'none';
+    const finalDiv = document.getElementById('final');
+    finalDiv.style.display = 'block';
+    finalDiv.querySelector('#full-message').textContent = typingText;
+}
+
+// Lancer l’animation automatique
+runCassette();
