@@ -1,0 +1,53 @@
+/* General */
+body {
+    font-family: 'Courier New', monospace;
+    background: #121212;
+    color: #3F3;
+    margin: 0;
+    padding: 0;
+}
+header {
+    text-align: center;
+    padding: 1em;
+}
+nav button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background: #222;
+    color: #3F3;
+    border: 1px solid #3F3;
+    cursor: pointer;
+}
+nav button:hover {
+    background: #3F3;
+    color: #121212;
+}
+
+/* Sections */
+.section { display: none; padding: 2em; }
+
+/* Cassette Animée */
+.tape-wrap { position: relative; background: #222; padding: 20px; border: 2px dashed #555; }
+.tape-anim { position: relative; height: 300px; }
+.tape-left, .tape-right { position: absolute; width: 70px; height: 70px; top: 100px; }
+.tape-left { left: -50px; background: url('assets/images/cassette.png') no-repeat center; animation: spin1 15s linear infinite; }
+.tape-right { right: -50px; background: url('assets/images/cassette.png') no-repeat center; animation: spin1 20s linear infinite; }
+.tape-record { text-align: center; margin-top: 20px; }
+.record { display: block; position: absolute; width: 100%; opacity: 0; animation-name: record; animation-duration: 3s; }
+.r1 { animation-delay: 1s; } .r2 { animation-delay: 4s; } .r3 { animation-delay: 7s; } .r4 { animation-delay: 10s; }
+
+@keyframes spin1 { 0%{ transform: rotate(0deg); } 100%{ transform: rotate(360deg); } }
+@keyframes record { 0%{ opacity:0; } 25%{ opacity:1; } 75%{ opacity:1; } 100%{ opacity:0; } }
+
+/* Typing Effect */
+.type-wrap-wrapper { text-align: left; max-width: 800px; margin: auto; padding: 2em; border: 2px solid #3F3; }
+.typearea { color: #3F3; font-family: monospace; font-size: 1.1em; white-space: pre-wrap; }
+
+/* SCiPNET / Dossier */
+.scipnet-form { max-width: 450px; margin: auto; text-align: center; background: #222; padding: 2em; border-radius: 10px; border: 1px solid #3F3; }
+.input-container { display: flex; width: 100%; margin-bottom: 15px; }
+.input-field { width: 100%; padding: 10px; border: 1px solid #3F3; background: #121212; color: #3F3; }
+.btn { padding: 10px 20px; background: #3F3; color: #121212; border: none; cursor: pointer; }
+.btn:hover { background: #121212; color: #3F3; border: 1px solid #3F3; }
+.btn2 { background: #121212; border: 1px solid #3F3; color: #3F3; cursor: pointer; margin-top: 10px; }
+.scipnet-title { font-size: 2em; margin-bottom: 1em; }
